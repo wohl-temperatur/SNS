@@ -1,0 +1,36 @@
+
+img.sercret{
+	width: 0px;
+	height: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#container{
+	border: solid 1px #009900;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+/* indexスタイル */
+h1.subject {
+
+}
+/* 投稿 */
+div.top {
+    border: double black 0.2em;
+}
+/* 入力欄 */
+textArea {
+	height: 7em;
+}
+/* コメント */
+div.comment { 
+    padding: 0.3em;
+    margin: 0.4em;
+}
+
+/* 名前：日付 */
+span.data {
+
+}

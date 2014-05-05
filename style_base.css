@@ -1,0 +1,46 @@
+body{
+	margin: 10px;
+}
+
+img.sercret{
+	width: 24px;
+	height: 24px;
+	margin: 0px;
+	padding: 0px;
+}
+
+/* indexスタイル */
+h1.subject {
+    background-color: #ffff99;
+    font-size: x-large;
+    text-align: center;
+}
+/* 投稿 */
+div.top {
+    background-color: #ddffff;
+    border: solid black 0.1em;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.1em;
+    text-indent: 0em;
+    padding: 0.3em;
+}
+/* 入力欄 */
+textArea {
+	height: 3em;
+	width: 98%;
+}
+
+/* コメント */
+div.comment {
+    border: dotted black 0.1em;   
+    padding: 0.2em;
+    margin: 0.3em;
+}
+
+/* 名前：日付 */
+span.data {
+    color: gray;
+    font-size: x-small;
+    margin-left: 0.4em;
+    text-decoration: underline;
+}
