@@ -1,9 +1,9 @@
 Sub myWrite(path)
-  If MsgBox(Document.FmName.tArea.Value, vbYesNo, "é€ä¿¡ã—ã¦ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ") = vbNo Then
+  If MsgBox(Document.FmName.tArea.Value, vbYesNo, "‘—M‚µ‚Ä‚æ‚ë‚µ‚¢‚Å‚·‚©H") = vbNo Then
     WScript.Quit
   End If
 
-  Const PATH_VBS = "C:\Users\owner\myWorkingData\sns_renew\sendMail.vbs" 
+  Const PATH_VBS = "\\Pc-z560\sns\sendMail.vbs" 
 
   Dim pathFile
   pathFile = path
@@ -12,8 +12,11 @@ Sub myWrite(path)
 
   Dim objFSO
   Dim objText
+  msgbox 0
   Set objFSO = CreateObject("Scripting.FileSystemObject")
+  msgbox 1
   Set objText = objFSO.OpenTextFile(pathFile, 1)
+  msgbox 2
 
   Dim txtComment
   txtComment = Document.FmName.tArea.Value
@@ -30,7 +33,7 @@ Sub myWrite(path)
   txtLine = objText.ReadLine
   txtAll = txtLine & vbLf
 
-  'ã‚³ãƒ¡ãƒ³ãƒˆç•ªå·ã‚«ã‚¦ãƒ³ãƒˆã‚¢ãƒƒãƒ—
+  'ƒRƒƒ“ƒg”Ô†ƒJƒEƒ“ƒgƒAƒbƒv
   Dim myNum
   txtLine = objText.ReadLine
   myNum = Clng(Replace(Replace(txtLine, "<!-- ", ""), " -->", ""))
@@ -39,22 +42,22 @@ Sub myWrite(path)
   Do While objText.AtEndOfStream <> True
     txtLine = objText.ReadLine
     txtAll = txtAll & txtLine & vbLf
-    If txtLine = "<!-- ã‚³ãƒ¡ãƒ³ãƒˆã“ã“ã‹ã‚‰ -->" then
-        txtAll = txtAll & "<div class=""comment""><span class=""data"">No." & myNum & "ï¼š" & jsUName & "_" & myToday & "</span><br>" & vbLf & txtComment & vbLf & "</div>" & vbLf & vbLf
+    If txtLine = "<!-- ƒRƒƒ“ƒg‚±‚±‚©‚ç -->" then
+        txtAll = txtAll & "<div class=""comment""><span class=""data"">No." & myNum & "F" & jsUName & "_" & myToday & "</span><br>" & vbLf & txtComment & vbLf & "</div>" & vbLf & vbLf
     End If
   Loop
   objText.Close
   Set objText = objFSO.OpenTextFile(pathFile, 2)
     objText.Write txtAll
   objText.Close
-  'objText = Nothing    'ã‚ã£ãŸã‚‰ã‚¨ãƒ©ãƒ¼
-  'objFSO = Nothing    'ã‚ã£ãŸã‚‰ã‚¨ãƒ©ãƒ¼
-  MsgBox "æ­£å¸¸ã«æ›´æ–°ã§ãã¾ã—ãŸã€‚"
+  'objText = Nothing    '‚ ‚Á‚½‚çƒGƒ‰[
+  'objFSO = Nothing    '‚ ‚Á‚½‚çƒGƒ‰[
+  MsgBox "³í‚ÉXV‚Å‚«‚Ü‚µ‚½B"
 
-  'ãƒ¡ãƒ¼ãƒ«é€ä¿¡
+  'ƒ[ƒ‹‘—M
   Dim nameFile
   nameFile = pathFile
   nameFile = Left(nameFile, InStrRev(nameFile, ".") - 1)
   nameFile = Right(nameFile, Len(nameFile) - InStrRev(nameFile, "/"))
-  CreateObject("WScript.Shell").Run "WScript.exe """ & PATH_VBS & """ """ & jsUName & """ ""ã€æ›´æ–°ã€‘" & nameFile & """ """ & Document.FmName.tArea.Value & vbLf & vbLf & "<" & pathFile & ">"""
+  CreateObject("WScript.Shell").Run "WScript.exe """ & PATH_VBS & """ """ & jsUName & """ ""yXVz" & nameFile & """ """ & Document.FmName.tArea.Value & vbLf & vbLf & "<" & pathFile & ">"""
 End Sub
